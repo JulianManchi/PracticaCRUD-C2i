@@ -50,6 +50,13 @@ function crearSerie(e){
 
     // Cerrar el Modal que administra series
     modalAdminSerie.hide();
+
+    // Mostar cartel al usuario
+    Swal.fire(
+        'Bien Hecho!',
+        'Has guardado tu serie!',
+        'success'
+      );
 }
 
 function limpiarFormulario(){
