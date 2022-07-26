@@ -63,7 +63,7 @@
       <hr />
       <section class="d-flex my-4">
         <p class="mb-0 mt-1">Opciones:</p>
-        <button class="btn btn-outline-primary btn-sm ms-3" data-bs-toggle="modal" data-bs-target="#modalSerie">
+        <button id="btnCrearSerie" class="btn btn-outline-primary btn-sm ms-3">
           <i class="bi bi-clipboard2-plus-fill"></i>
         </button>
       </section>
@@ -131,7 +131,7 @@
             <form id="formSerie">
                 <div class="mb-3">
                     <label for="codigo">Codigo</label>
-                    <input id="codigo" type="text" class="form-control" placeholder="123" maxlength="5" minlength="2">
+                    <input id="codigo" type="text" class="form-control" placeholder="123" maxlength="5" minlength="1">
                 </div>
                 <div class="mb-3">
                     <label for="titulo">Titulo</label>

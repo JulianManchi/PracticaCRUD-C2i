@@ -12,11 +12,23 @@ let genero = document.getElementById('genero');
 // Formulario completo
 let formulario = document.getElementById('formSerie');
 
-let listaSeries = [];
+// Si hay algo en LocalStorage traer esos datos, si no hay nada en listaSeries tiene que ser un arreglo []
+let listaSeries = JSON.parse(localStorage.getItem("listaSeriesKey")) || [];
+
+// Traigo el boton para abrir un modal
+let btnCrearSerie = document.getElementById('btnCrearSerie');
+
+// Traigo la ventana Modal
+const modalAdminSerie = new bootstrap.Modal(document.getElementById('modalSerie'));
+console.log(modalAdminSerie);
 
 // TAREA: Agregar validaciones a cada campo
 
 formulario.addEventListener('submit',crearSerie)
+btnCrearSerie.addEventListener('click', ()=>{
+    limpiarFormulario();
+    modalAdminSerie.show();
+});
 
 function crearSerie(e){
     e.preventDefault();
@@ -32,8 +44,19 @@ function crearSerie(e){
 
     // limpiar el formulario
     limpiarFormulario();
+
+    // Guardar la lista de series en Local Storage
+    guardarSeries();
+
+    // Cerrar el Modal que administra series
+    modalAdminSerie.hide();
 }
 
 function limpiarFormulario(){
     formulario.reset();
+    // Si usamos las clases isinvalid o is-isinvalid de bootstrap hay que resetearlos
+}
+
+function guardarSeries(){
+    localStorage.setItem('listaSeriesKey', JSON.stringify(listaSeries))
 }
